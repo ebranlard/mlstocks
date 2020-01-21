@@ -1,0 +1,3 @@
+[submodule "yfinance"]
+	path = yfinance
+	url = https://github.com/ebranlard/yfinance
