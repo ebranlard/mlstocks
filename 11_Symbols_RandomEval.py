@@ -10,7 +10,7 @@ day_start = None
 day_end   = None
 
 Mode='Random'
-Mode='Portfolio'
+# Mode='Portfolio'
 
 
 
