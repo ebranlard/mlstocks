@@ -28,7 +28,7 @@ InFile  = 'Portfolio.xlsx'; outFile = 'Portfolio_FullStats.xlsx'
 # --- Option 2
 # InFile  = None; outFile = 'Selection_FullStats.xlsx'
 # ticks  = ['ACER','TSLA','AMZN','MSFT','AA','UAL','CVS']
-# ticks  = ['CUK']
+# ticks  = ['AMZN']
 # # ticks  = tickL5
 # ticks = ['ACER', 'ACH', 'ACWV', 'AGRO', 'AMBO', 'AMK', 'ANFI', 'ARNC', 'ATV', 'AXGT', 'BASFY', 'BBAX', 'BBCA', 'BBEU', 'BBJP', 'BBL', 'BEDU', 'BITA', 'BLX.TO', 'BMA', 'BND', 'BNDX', 'BO.CO', 'BRFS', 'BRK-A', 'BRK-B', 'BSBR', 'CABGY', 'CAN', 'CANG', 'CBD', 'CCM', 'CDXC', 'CELG', 'CEPU', 'CGA', 'CHL', 'CHT', 'CHU', 'CIG', 'CIUEX', 'CLIX', 'CMCM', 'CNF', 'CNYA', 'CO', 'CPHI', 'CPL', 'CSTM', 'CTK', 'CTL', 'CUK', 'CUSDX', 'CUSUX', 'CYD', 'DARE', 'DIA', 'DL', 'DLPH', 'DNNGY', 'DODLX', 'DOGEF', 'DPSGY', 'DUSA', 'DVYA', 'DWX', 'EBIX', 'EBR', 'EDN', 'EMQQ', 'EROS', 'EVH', 'EWA', 'EWT', 'EWZ', 'FENG', 'FKUQX', 'FNI', 'FOJCF', 'FSAGX', 'FSPSX', 'FTEC', 'FXAIX', 'FXY', 'GAIN', 'GCGMF', 'GCTAF', 'GHG', 'GLD', 'GLDM', 'GLTR', 'GNNDY', 'GOL', 'GOVT', 'GSH', 'GSL', 'GTIP', 'GTX', 'HAUD', 'HKIB', 'HMC', 'HSBC', 'HYMB', 'IAC', 'IAU', 'ICLN', 'IDV', 'IEF', 'IGBH', 'IGOV', 'IGSB', 'IHF', 'IHG', 'IOO', 'IOTS', 'IRS', 'IVV', 'IX', 'IYR', 'JEIQX', 'JMEI', 'JP', 'KB', 'KEP', 'KNSA', 'KRYS', 'KT', 'LAIX', 'LEGN', 'LEJU', 'LFC', 'LINX', 'LITB', 'LK', 'LN', 'LND', 'LOWE.VI', 'LPL', 'LQD', 'LVHI', 'LVL', 'LXFR', 'MBB', 'MCHI', 'MFG', 'MFGP', 'MMYT', 'MOGU', 'MSC', 'MSYPX', 'MTILX', 'MUFG', 'NE', 'NEW', 'NFC', 'NGG', 'NMR', 'NSRGY', 'NTP', 'NVGS', 'NXP', 'OIBRQ', 'OROCF', 'PAM', 'PDBAX', 'PEGI', 'PPDF', 'PSO', 'PTF', 'PTR', 'PUK', 'QQQ', 'QWLD', 'RAPT', 'RBS', 'RELX', 'RENN', 'REZ', 'RHHBY', 'RNW.TO', 'RUBI', 'RYB', 'S', 'SAMG', 'SBGL', 'SCHD', 'SCHZ', 'SCPE', 'SDIV', 'SDRL', 'SFUN', 'SHI', 'SHY', 'SID', 'SKM', 'SKYY', 'SLV', 'SMFG', 'SMH', 'SOGO', 'SOXX', 'SPHD', 'SPLB', 'SPXC', 'SPY', 'STG', 'SUZ']
 # ticks=['AMZN','TSLA']
@@ -65,7 +65,7 @@ columns += ['TR_insidersActivity_last3MonthsSum','TR_hedgeFundActivity_trend','T
 columns += ['TR_fundamentals_assetGrowth','TR_technicals_SMA_20_200','TR_technicals_twelveMonthsMomentum']
 columns += ['targetLowPrice','TR_targetLowPrice', 'currentPrice', 'targetMeanPrice','TR_targetMeanPrice', 'targetHighPrice','TR_targetHighPrice']
 columns += ['yield', 'dividendYield' ,'trailingAnnualDividendYield' ,'trailingAnnualDividendRate'  ,'ytdReturn']
-columns += ['outperformSP500_crises']
+columns += ['outperformSP500_crises','outperformSP500_last3y']
 #columns += ['trailingPE' ,'forwardPE' ,'forwardEps' ]
 #columns += ['morningStarOverallRating', 'morningStarRiskRating','profitMargins'] 
 #columns += ['earningsQuarterlyGrowth']

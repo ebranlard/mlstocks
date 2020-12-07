@@ -49,15 +49,15 @@ class ExcelTable(object):
             self.addDataFrame(df, sheetname)
 
     def write(self):
-#         try:
-        self.writer.save()
-#         except:
-#             print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-#             print('!!! Excel file {} is likely locked'.format(self.filename))
-#             print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-#             print('Close the file and then type `continue`')
-#             import pdb; pdb.set_trace()
-#             self.writer.save()
+        try:
+            self.writer.save()
+        except:
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            print('!!! Excel file {} is likely locked'.format(self.filename))
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            print('Close the file and then type `continue`')
+            import pdb; pdb.set_trace()
+            self.writer.save()
 
     def launch(self):
         """ Open Excel file (after it has been written) """

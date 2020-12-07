@@ -1,8 +1,7 @@
 import numpy as np
 import pandas as pd
-
-import matplotlib.pyplot as plt
 from datetime import date, timedelta
+
 from .symbol  import Symbol 
 from .utils   import SearchableDict
 from .crisis import get_crisis_data
@@ -317,6 +316,7 @@ def rel_comparison_plot_df(df1, df2, variable='Close', lb1='ref', lb2='other', a
         x=t1
 
     if ax is None:
+        import matplotlib.pyplot as plt
         fig,ax = plt.subplots(1,1)
     ax.plot(x, p1,'k-', label=lb1)
     ax.plot(x, p2,      label=lb2)
@@ -338,7 +338,7 @@ def rel_comparison_plot_df(df1, df2, variable='Close', lb1='ref', lb2='other', a
 def current_price(tick, info, history):
     # --- Current price
     vNow = np.nan
-    if 'current' in info:
+    if 'currentPrice' in info:
         vNow = info['currentPrice']
     elif 'TR_currentPrice' in info:
         vNow = info['TR_currentPrice']

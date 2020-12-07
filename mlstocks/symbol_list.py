@@ -9,7 +9,7 @@ from mlstocks.stats import last3y, current_price
 from mlstocks.stats import crisis_stats, history_stats, sp500_comp_stats
 
 
-def download_stats(ticks, columns=None, df=None, sources=['yahoo','tipranks'], nThreads=5, nTries=5, history_stats=True):
+def download_stats(ticks, columns=None, df=None, sources=['yahoo','tipranks'], nThreads=5, nTries=5, calc_history_stats=True):
     """ 
     Downloads statistics for a list of tickers and store it into a pandas DataFrame
     If a list of columns is provided, the columns are used to set the order of the columns
@@ -58,7 +58,7 @@ def download_stats(ticks, columns=None, df=None, sources=['yahoo','tipranks'], n
                 symb.download_stats(sources=[source], nTries=nTries)
 
         # --- Get historical market data
-        if history_stats:
+        if calc_history_stats:
             with Timer(tick + ' Donwload History'):
                 # NOTE: this is stored in _history and hence affects "actions"= "dividends" "splits"
                 history = symb.download_history(period="5y" , interval='1d' )
@@ -80,7 +80,7 @@ def download_stats(ticks, columns=None, df=None, sources=['yahoo','tipranks'], n
             for key in info.keys():
                 df.loc[it,key] = info[key]
 
-        if history_stats and len(history)<=0:
+        if calc_history_stats and len(history)<=0:
             print('[FAIL] No time data')
             problematic_tickers.append(tick)
             return
@@ -88,25 +88,40 @@ def download_stats(ticks, columns=None, df=None, sources=['yahoo','tipranks'], n
             problematic_tickers.append(tick)
 
         # --- Time history metrics
-        if history_stats:
+        if calc_history_stats:
             #with Timer(tick + ' Compute Metrics'):
             # --- Current price
             vNow = current_price(tick, symb.stats, history)
         
             # --- Performance against S&P500 during 2008 and 2020 crises
             cr_stats = crisis_stats(tick, sp500_crisis2008, sp500_crisis2020, criteriaCrisis= 2)
-            for k,v in cr_stats.items():
-                df.loc[it,k] = v
+            if columns is None:
+                for k,v in cr_stats.items():
+                    df.loc[it,k] = v
+            else:
+                for k,v in cr_stats.items():
+                    if k in df.columns:
+                        df.loc[it,k] = v
 
             # --- Performance against S&P500 last year
             sp_stats = sp500_comp_stats(history, sp500_1y, sp500_32y)
-            for k,v in sp_stats.items():
-                df.loc[it,k] = v
+            if columns is None:
+                for k,v in sp_stats.items():
+                    df.loc[it,k] = v
+            else:
+                for k,v in sp_stats.items():
+                    if k in df.columns:
+                        df.loc[it,k] = v
 
             # --- Rel diff today versus last week/month/year stat
             hstats = history_stats(history, vNow)
-            for k,v in hstats.items():
-                df.loc[it,k] = v
+            if columns is None:
+                for k,v in hstats.items():
+                    df.loc[it,k] = v
+            else:
+                for k,v in hstats.items():
+                    if k in df.columns:
+                        df.loc[it,k] = v
 
     if nThreads==1:
         # --- Simple loop over tickers

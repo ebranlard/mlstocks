@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
         columns=[]
         columns += ['longName','country','currentPrice','expenseRatio']  # Basic company info
 
-        df = download_stats(ticks, columns, nThreads=nThreads, nTries=nTries, history_stats=False)
+        df = download_stats(ticks, columns, nThreads=nThreads, nTries=nTries, calc_history_stats=False)
         print(df)
 
         # --- Write to Excel
