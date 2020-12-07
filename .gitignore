@@ -3,6 +3,7 @@
 *.pdf
 *.xlsx
 _*
+!__*__.py
 *.csv
 tags
 *_bkp.py
