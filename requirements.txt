@@ -1,7 +1,3 @@
-ytd
-yfinance
 pandas
 numpy
-keras
-tensorflow
-html5lib
+xlswriter

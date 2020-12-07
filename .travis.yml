@@ -1,0 +1,18 @@
+# Travis-CI file for weio
+language: python
+
+python:
+  - "3.6"
+
+os: 
+ - linux
+
+sudo: true
+
+install:
+  - python -m pip install -r requirements.txt
+  - python -m pip install -e .
+
+script: 
+  - python -m unittest discover
+
